@@ -1,17 +1,13 @@
 # DeepEval: Production-Grade Testing and Evaluation for LLM Applications
 
-This repository is the documentation companion to the twelve-chapter technical
-manuscript on evaluation-first development with DeepEval. It is organized as a
-progressive engineering handbook: begin with the failure of exact-match testing,
-learn how metrics convert subjective behavior into measurable evidence, then
-scale those evaluations through tracing, datasets, CI/CD, monitoring, red
-teaming, and governance.
+Technical report on evaluation-first development with DeepEval. The document
+progresses from the limits of exact-match testing through metrics, tracing,
+datasets, CI/CD, monitoring, red teaming, and governance.
 
-The examples target Python 3.11+ and the DeepEval 4.x API family. They are
-designed to complement an executable DeepEval test repository while remaining
-self-contained as a documentation portal.
+Examples target Python 3.11+ and the DeepEval 4.x API family. They complement
+an executable DeepEval test repository and serve as a self-contained reference.
 
-## Who this guide is for
+## Audience
 
 - QA and test automation engineers moving into AI quality engineering.
 - LLM application developers who need repeatable regression protection.
@@ -30,30 +26,30 @@ self-contained as a documentation portal.
 | Version control | Git | Prompts, goldens, thresholds, and evaluations are code |
 | CI system | GitHub Actions or equivalent | Automated quality gates on every change |
 
-## Book navigation
+## Table of contents
 
-### Part I — Foundations of LLM Quality Engineering
+### Section 1 — Foundations of LLM Quality Engineering
 
 1. [The LLM Evaluation Crisis](docs/chapter1_crisis.md)
 2. [Your First DeepEval Test](docs/chapter2_basics.md)
 
-### Part II — Metrics: The Core Evaluation Engine
+### Section 2 — Metrics: The Core Evaluation Engine
 
 3. [Understanding Metrics Like an Evaluator](docs/chapter3_metrics.md)
 4. [Custom Metrics: G-Eval and DAG](docs/chapter4_custom.md)
 
-### Part III — Evaluating Real AI Systems
+### Section 3 — Evaluating Real AI Systems
 
 5. [RAG Evaluation: Retriever to Final Answer](docs/chapter5_rag.md)
 6. [Agent Evaluation and Tool Use](docs/chapter6_agent.md)
 7. [Conversational and Multimodal Evaluations](docs/chapter7_conv_multi.md)
 
-### Part IV — Building Evaluation Infrastructure
+### Section 4 — Building Evaluation Infrastructure
 
 8. [Tracing, Observability, and Component Evaluations](docs/chapter8_observability.md)
 9. [Synthetic Data and Golden Datasets](docs/chapter9_synthetic.md)
 
-### Part V — Scaling Across Teams
+### Section 5 — Scaling Across Teams
 
 10. [CI/CD and Confident AI](docs/chapter10_cicd.md)
 11. [Production Monitoring and Red Teaming](docs/chapter11_monitoring.md)
@@ -129,9 +125,9 @@ flowchart LR
     I --> A
 ```
 
-## Reading and implementation strategy
+## Implementation approach
 
-Each chapter follows a shared pattern:
+Each section follows a shared pattern:
 
 1. Define the quality problem in system and business terms.
 2. Identify the test-case evidence needed to evaluate it.
@@ -140,10 +136,10 @@ Each chapter follows a shared pattern:
 5. Capture component traces so failures are diagnosable.
 6. Feed real failures back into version-controlled datasets.
 
-For a first implementation, read Chapters 1–5, create ten to twenty goldens,
-and place one RAG or answer-quality suite in CI. Add agent and conversation
-metrics only when those architectures exist in the product. Add production
-monitoring before broad rollout, not after the first incident.
+For a first implementation, work through items 1–5, create ten to twenty
+goldens, and place one RAG or answer-quality suite in CI. Add agent and
+conversation metrics only when those architectures exist in the product. Add
+production monitoring before broad rollout, not after the first incident.
 
 ## Core commands
 
@@ -160,7 +156,7 @@ deepeval test run tests/
 Keep credentials in `.env.local`, a secret manager, or CI secrets. Never store
 provider keys in tests, notebooks, datasets, traces, or documentation examples.
 
-## Documentation conventions
+## Terminology
 
 - `input` means the user or upstream component request.
 - `actual_output` means the observed application response.
